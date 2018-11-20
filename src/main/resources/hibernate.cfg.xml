@@ -1,0 +1,75 @@
+<!-- Difference between Spring Data JPA and Hibernate: 
+
+Short: They are not competitors we can use them combined.
+
+First Explanation:
+Hibernate is a JPA implementation, while Spring Data JPA is a JPA Data Access Abstraction. Spring Data offers a solution to GenericDao custom implementations. It can also generate JPA queries on your behalf through method name conventions.
+
+With Spring Data, you may use Hibernate, Eclipse Link or any other JPA provider. A very interesting benefit is that you can control transaction boundaries declaratively using the @Transactional annotation.
+
+Spring JDBC is much more lightweight, and it's intended for native querying, and if you only intend to use JDBC alone, then you are better off using Spring JDBC to deal with the JDBC verbosity.
+
+So, Hibernate,and Spring Data are complementary rather than competitors.
+
+*********************************************
+
+Second Explanation.
+
+There are 3 different things we are using here :
+
+JPA : Java persistence api which provide specification for persisting, reading, managing data from your java object to relations in database.
+
+1. Hibernate: There are various provider which implement jpa. Hibernate is one of them. So we have other provider as well. But if using jpa with spring
+			it allows you to switch to different providers in future.
+Spring Data JPA : This is another layer on top of jpa which spring provide to make your life easy.
+So lets understand how spring data jpa and spring + hibernate works-
+
+2. Spring Data JPA:
+Let's say you are using spring + hibernate for your application. Now you need to have dao interface and implementation where you will be writing crud operation
+using SessionFactory of hibernate. Let say you are writing dao class for Employee class, tomorrow in your application you might need to write similiar crud operation
+for any other entity. So there is lot of boilerplate code we can see here.
+
+Now Spring data jpa allow us to define dao interfaces by extending its repositories(crudrepository, jparepository) so it provide you dao implementation at runtime.
+You don't need to write dao implementation anymore.Thats how spring data jpa makes your life easy. -->
+
+<!-- ******************************************************************************************************************************************************** -->
+
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">atishay</property>
+
+		This is deprecated for latest MySql, hibernate now uses engine instead 
+			of type.
+		org.hibernate.dialect.MySQLDialect
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+		<property name="show_sql">true</property>
+
+		This will format the SQL
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		connection pool
+		with this hibernate will not use its default connection pooling, it 
+			will use this third party.
+		like c3p0 there is another like proxol
+		<property name="c3p0.timeout">10</property>
+
+		<property name="hibernate.id.new_generator_mappings">false</property>
+
+		It is important so that hibernate can understand which classes to 
+			map with which tables.
+		User annotation class
+		<mapping class="com.atishay.springbootstarter.topics.TopicDTO" />
+	</session-factory>
+</hibernate-configuration> -->
