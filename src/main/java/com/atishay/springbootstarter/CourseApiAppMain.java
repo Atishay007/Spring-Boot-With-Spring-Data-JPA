@@ -17,14 +17,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 // automatically scan the base classes and packages.
 @EnableJpaRepositories(basePackages = { "com.atishay.springbootstarter.repository" })
 @EntityScan(basePackages = { "com.atishay.springbootstarter.entity" })
-@PropertySource("check.properties")
+//@PropertySource("check.properties")
 public class CourseApiAppMain {
 
-	@Value("${check.properties}")
-	static String dataSource;
+	//@Value("${check.properties}")
+	//static String dataSource;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CourseApiAppMain.class, args);
-		System.out.println("***************" + dataSource);
+		//System.out.println("***************" + dataSource);
 	}
 }
